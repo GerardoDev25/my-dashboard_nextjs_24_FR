@@ -16,7 +16,7 @@ const menuItems = [
     subtitle: 'client site counter',
   },
   {
-    path: '/dashboard/pokemon',
+    path: '/dashboard/pokemons',
     icon: <IoFootball size={40} />,
     title: 'Pokemon',
     subtitle: 'Static Generation',

@@ -18,7 +18,9 @@ export const PokemonCard = ({ pokemon }: Props) => {
             key={pokemon.id}
             width={100}
             height={100}
-            alt='pokemon'
+            alt={name}
+            style={{ width: 100, height: 100 }}
+            priority={false}
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
           />
           <p className='pt-2 text-lg font-semibold text-gray-50'>{name}</p>
@@ -35,7 +37,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
         <div className='border-b'>
           <Link
             href='dashboard/main'
-            className='px-4 py-2 hover:bg-gray-100 flex items-center' 
+            className='px-4 py-2 hover:bg-gray-100 flex items-center'
           >
             <div className='text-red-600'>
               <IoHeartOutline />

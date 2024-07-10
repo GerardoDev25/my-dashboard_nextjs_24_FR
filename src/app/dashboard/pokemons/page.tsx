@@ -1,4 +1,4 @@
-import { PokemonsResponse, SimplePokemon, PokemonGrid } from '@/app/pokemons';
+import { PokemonsResponse, SimplePokemon, PokemonGrid } from '@/pokemons';
 
 const getPokemon = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => {
   const req = await fetch(
@@ -10,6 +10,7 @@ const getPokemon = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => {
     name: pokemon.name,
     id: pokemon.url.split('/').at(-2)!,
   }));
+  // throw new Error('Error bla bla bla');
 
   return pokemons;
 };
