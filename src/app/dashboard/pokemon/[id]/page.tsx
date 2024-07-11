@@ -5,7 +5,12 @@ import { notFound } from 'next/navigation';
 
 interface Props {
   params: { id: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export async function generateStaticParams() {
+  const static151Pokemons = Array.from({ length: 151 }, (_, i) => `${i + 1}`);
+
+  return static151Pokemons.map((id) => ({ id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -26,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const getPokemon = async (id: string): Promise<Pokemon> => {
   try {
     const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-      cache: 'force-cache',
+      // cache: 'force-cache',
     }).then((poke) => poke.json());
 
     console.log('was load: ', pokemon.name);
