@@ -1,5 +1,8 @@
 {
   "cSpell.words": [
     "Pokemons"
+  ],
+  "conventionalCommits.scopes": [
+    "dev"
   ]
 }
