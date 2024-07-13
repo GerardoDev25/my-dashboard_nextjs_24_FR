@@ -19,7 +19,6 @@ export const PokemonCard = ({ pokemon }: Props) => {
   const dispatch = useDispatch();
 
   const onToggle = () => {
-    console.log(isFavorite);
     dispatch(toggleFavorite(pokemon));
   };
 
@@ -58,7 +57,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
             </div>
             <div className='pl-3'>
               <p className='text-sm font-medium text-gray-800 leading-none'>
-                is not favorite
+                {isFavorite ? 'is favorite' : 'is not favorite'}
               </p>
               <p className='text-xs text-gray-500'>View your campaigns</p>
             </div>
