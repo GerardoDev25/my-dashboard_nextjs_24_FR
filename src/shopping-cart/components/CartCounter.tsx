@@ -31,10 +31,6 @@ export const CartCounter = ({ value = 0 }: Props) => {
     });
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(initCounterState(value));
-  // }, [dispatch, value]);
-
   return (
     <>
       <span className='text-9xl'>{count}</span>
