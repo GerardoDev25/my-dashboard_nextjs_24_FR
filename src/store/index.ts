@@ -6,10 +6,8 @@ import { localStorageMiddleware } from './pokemons/middlewares/localStorage-midd
 
 export const store = configureStore({
   reducer: { counter: counterReducer, pokemons: pokemonsReducer },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(localStorageMiddleware),
   // middleware: (getDefaultMiddleware) =>
-  //   new Tuple(getDefaultMiddleware(), localStorageMiddleware),
+  //   getDefaultMiddleware().concat(localStorageMiddleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

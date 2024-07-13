@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SimplePokemon } from '../interfaces/simple-pokemon';
 import { PokemonCard } from './PokemonCard';
 import { useAppSelector } from '@/store';
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const PokemonFavoriteGrid = ({ pokemons }: Props) => {
-  const storePokemons = useAppSelector((store) => store.pokemons);
+  const storePokemons = useAppSelector((store) => store.pokemons.favorites);
 
   const pokemonsId = Object.keys(storePokemons);
 
@@ -20,13 +20,19 @@ export const PokemonFavoriteGrid = ({ pokemons }: Props) => {
 
   const [pokemonsState, setPokemonsState] = useState(pokemonsFavorites);
 
+  // todo this don't work
+  useEffect(() => {
+    // setPokemonsState(pokemonsFavorites);
+    console.log(pokemonsFavorites);
+  }, [pokemonsFavorites]);
+
   if (pokemonsState.length === 0) {
     return <NotFavorites />;
   }
 
   return (
     <div className='flex flex-wrap gap-10 items-center justify-center'>
-      {pokemonsState.map((pokemon) => (
+      {pokemonsFavorites.map((pokemon) => (
         <PokemonCard key={pokemon.id!} pokemon={pokemon} />
       ))}
     </div>
